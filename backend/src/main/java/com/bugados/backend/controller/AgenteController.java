@@ -49,9 +49,9 @@ public class AgenteController {
 	}
 	
 	@PostMapping("/agentetransacao")
-	public ResponseEntity<ArrayList<Agente>> login(@RequestBody Agente ag_financeiro) {
-		ArrayList<Agente> listaTrans = (ArrayList<Agente>) dao.findTransacao(ag_financeiro.getIdAgente());
-		if(!listaTrans.isEmpty()) {
+	public ResponseEntity<Agente> login(@RequestBody Agente ag_financeiro) {
+		Agente listaTrans = dao.findTransacao(ag_financeiro.getIdAgente());
+		if(listaTrans != null) {
 			return ResponseEntity.ok(listaTrans);
 		}else {
 			return ResponseEntity.notFound().build();

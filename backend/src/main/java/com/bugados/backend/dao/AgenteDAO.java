@@ -23,5 +23,5 @@ public interface AgenteDAO extends CrudRepository<Agente, Integer>{
    	public ArrayList<Agente> findNome3();
     
     @Query("SELECT a FROM Agente a WHERE a.idAgente = :id_Agente")
-	public ArrayList<Agente> findTransacao(int id_Agente);
+	public Agente findTransacao(int id_Agente);
 }
